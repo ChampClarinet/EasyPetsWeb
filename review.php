@@ -1,7 +1,9 @@
 <?php
-require('core/loader.php');
+require('core/libraries.php');
+require('core/renderer/barsAndFooter.php');
 require('core/model/Service.php');
-require('core/reviews.php');
+require('core/drawReviewsTable.php');
+require('core/db_config.php');
 include 'core/renderer/header_inc.php';
 $page_title = 'รีวิว';
 setTitle($page_title);
@@ -18,7 +20,7 @@ $service = unserialize($_SESSION['service']);
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <?php drawTableReview();?>
+                    <?php drawTableReview($service->service_id);?>
                 </div>
             </div>
         </div>

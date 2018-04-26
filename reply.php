@@ -1,7 +1,9 @@
 <?php
-require('core/loader.php');
+require('core/libraries.php');
+require('core/renderer/barsAndFooter.php');
 require('core/model/Service.php');
-require('core/replies.php');
+require('core/db_config.php');
+require('core/drawRepliesTable.php');
 include 'core/renderer/header_inc.php';
 $page_title = 'การตอบกลับ';
 setTitle($page_title);
@@ -18,7 +20,7 @@ $service = unserialize($_SESSION['service']);
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <?php drawTableReply();?>
+                        <?php drawTableReply($service->service_id);?>
                     </div>
                 </div>
             </div>

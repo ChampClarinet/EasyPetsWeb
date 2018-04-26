@@ -1,5 +1,5 @@
 <?php
-require('core/loader.php');
+require('core/libraries.php');
 include 'core/renderer/header_inc.php';
 setTitle($GLOBALS['login']);
 //fonts

@@ -1,8 +1,10 @@
 <?php
-require('core/loader.php');
-require('core/reviews.php');
-require('core/replies.php');
+require('core/libraries.php');
+require('core/renderer/barsAndFooter.php');
+require('core/drawReviewsTable.php');
+require('core/drawRepliesTable.php');
 require('core/model/Service.php');
+require('core/counts.php');
 include 'core/renderer/header_inc.php';
 setTitle('Dashboard');
 loadMaterialDashboardLibraries();
@@ -34,9 +36,7 @@ $service = unserialize($_SESSION['service']);
                                     <i class="material-icons">favorite</i>
                                 </div>
                                 <p class="card-category">ถูกใจ</p>
-                                <h3 class="card-title">159
-                                    <small>คน</small>
-                                </h3>
+                                <h3 class="card-title"><?php echo likeCount($service->service_id); ?></h3>
                             </div>
                             <div class="card-footer"></div>
                         </div>
@@ -49,7 +49,7 @@ $service = unserialize($_SESSION['service']);
                                     <i class="material-icons">comment</i>
                                 </div>
                                 <p class="card-category">รีวิว</p>
-                                <h3 class="card-title">11</h3>
+                                <h3 class="card-title"><?php echo reviewsCount($service->service_id); ?></h3>
                             </div>
                             <div class="card-footer"></div>
                         </div>
@@ -62,7 +62,7 @@ $service = unserialize($_SESSION['service']);
                                     <i class="material-icons">reply</i>
                                 </div>
                                 <p class="card-category">การตอบกลับ</p>
-                                <h3 class="card-title">75</h3>
+                                <h3 class="card-title"><?php echo repliesCount($service->service_id); ?></h3>
                             </div>
                             <div class="card-footer"></div>
                         </div>
@@ -71,11 +71,11 @@ $service = unserialize($_SESSION['service']);
                 <div class="row">
                     <!--review-->
                     <div class="col-lg-6 col-md-12">
-                        <?php drawTableReview(); ?>
+                        <?php drawTableReview($service->service_id); ?>
                     </div>
                     <!--reply-->
                     <div class="col-lg-6 col-md-12">
-                        <?php drawTableReply(); ?>
+                        <?php drawTableReply($service->service_id); ?>
                     </div>
                 </div>
             </div>
@@ -86,6 +86,5 @@ $service = unserialize($_SESSION['service']);
 </body>
 <?php
 loadFirebaseLibraries();
-addLogoutEventJQuery();
 ?>
 </html>
