@@ -1,52 +1,51 @@
 <?php
-function drawTableReview($service_id)
+include 'getReview.php';
+
+function drawTableReviewSmall($service_id)
 {
     $review = getReview($service_id);
-    echo '<div class="card"><div class="card-header card-header-info">';
-    echo '<h4 class="card-title">รีวิวจากผู้ใช้บริการ</h4>';
-    if(count($review) > 0){
-        echo '<p class="card-category">มีการรีวิวทั้งหมด ' . count($review) . ' รีวิว</p>';
-        echo '</div>';
-        echo '<div class="card-body table-responsive"><table class="table table-hover"><thead class="text-info">';
-        echo '<th>ตอบกลับไปยัง</th><th>จากการรีวิว</th><th>การตอบกลับ</th></thead><tbody>';
+    echo '<div class="card"><div class="card-header card-header-info"><h4 class="card-title">รีวิวจากผู้ใช้บริการ</h4>';
+    if (count($review) > 0) {
+        echo '<p class="card-category">มีการรีวิวทั้งหมด ' . count($review) . ' รีวิว</p></div>'; //close header div
+        echo '<div class="card-body table-responsive"><table class="table table-hover">';
+        echo '<thead class="text-info"><tr><th></th><th style="width: 5%;"></th></tr></thead><tbody>';
         for ($i = 0; $i < count($review); $i++) {
-            echo '<tr id="'.$review[$i]['review_id'].'"><td>' . $review[$i]['reviewer_name'] . '</td>';
-            echo '<td>' . $review[$i]['time_reviewed'] . '</td>';
-            echo '<td>' . $review[$i]['review_text'] . '</td></tr>';
+            echo '<tr>';
+            echo '<td>' . $review[$i]['review_text'] . '</td>';
+            echo '<td><a href="review.php?id=' . $review[$i]["review_id"] . '"><button type="button" class="btn btn-info">รายละเอียด</button></a></td>';
+            echo '</tr>';
         }
         echo '</tbody></table></div>';
-    }else echo '</div><div class="card-body table-responsive"><h5>ยังไม่มีรีวิว</h5></div>';
-    echo '</div>';
-}
-
-function getReview($service_id)
-{
-    $con = connectDB();
-    $sql = "SELECT * FROM " . $GLOBALS['table_review'] . " where SERVICE_ID = " . $service_id;
-    $result = $con->query($sql);
-    $con->close();
-    if ($result->num_rows > 0) {
-        $review = array();
-        while ($row = $result->fetch_assoc()) {
-            $row['reviewer_name'] = getReviewerName($row['reviewer_uid']);
-            array_push($review, $row);
-        }
-        return $review;
     } else {
-        return null;
+        echo '</div>';//close header div
+        echo '<div class="card-body table-responsive"><table class="table table-hover"><thead class="text-info">';
+        echo '<tr><th></th><th style="width: 5%;"></th></tr>';
+        echo '</thead><tbody><tr><td>ยังไม่มีรีวิว</td></tr></tbody></table></div>';
     }
+    echo '</div>'; //close card div
 }
 
-function getReviewerName($reviewer_uid)
+?>
+
+<?php
+function drawTableReview($review)
 {
-    $con = connectDB();
-    $sql = "SELECT * FROM " . $GLOBALS['table_user'] . " where UID = '" . $reviewer_uid."'";
-    $result = $con->query($sql);
-    $con->close();
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        return $row['name'];
+    if (isset($review)) {
+        echo '<div class="card"><div class="card-header card-header-info">';
+        echo '<h4 class="card-title">' . $review['review_text'] . '</h4>';
+        echo '</div>';
+        echo '<div class="card-body table-responsive"><table class="table table-hover"><thead class="text-info">';
+        echo '<th>รีวิวโดย</th><th>รีวิวเมื่อ</th><th>รูปภาพ</th><th style="width: 5%;"></th></thead><tbody>';
+        echo '<tr><td>' . $review['reviewer_name'] . '</td>';
+        echo '<td>' . $review['time_reviewed'] . '</td>';
+        echo '<td><img src="bucket/reviewPictures/' . $review['review_picture_path'] . '" class="img-fluid" alt="review picture" style="max-width: 400px;max-height: 400px;"></td>';
+        echo '<td><a href="review.php?id=' . $review["review_id"] . '"><button type="button" class="btn btn-info">ตอบกลับ</button></a></td></tr>';
+        echo '</tbody></table></div>';
     } else {
-        return 'reviewer_name';
+        echo '<div class="card">';
+        echo '<div class="card-body table-responsive"><table class="table table-hover">';
+        echo '<tr><h4>ไม่พบรีวิวนี้</h4></tr>';
+        echo '<td><a href="dashboard.php"><button type="button" class="btn btn-info">ย้อนกลับ</button></a></td></tr>';
+        echo '</table></div>';
     }
 }

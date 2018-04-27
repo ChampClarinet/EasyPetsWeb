@@ -35,13 +35,6 @@ $hotel = getComponent($GLOBALS['table_hotel'], $service->service_id);
         <?php drawNavBar($page_title); ?>
         <div class="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <a href="edit_service_detail.php">
-                            <button id="edit" type="button" class="btn btn-info">แก้ไขข้อมูล</button>
-                        </a>
-                    </div>
-                </div>
                 <!--main-->
                 <div class="row">
                     <div class="card card-profile">
@@ -50,6 +43,13 @@ $hotel = getComponent($GLOBALS['table_hotel'], $service->service_id);
                                  style="width: 130px; height: 130px;" alt="service picture"/>
                         </div>
                         <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 float-right" style="position: absolute; right: 0; top: 0;">
+                                    <a href="edit_service_detail.php">
+                                        <button id="edit" type="button" class="btn btn-info">แก้ไขข้อมูล</button>
+                                    </a>
+                                </div>
+                            </div>
                             <h4 class="card-title"><?php echo $service->name ?></h4>
                             <div class="table-responsive">
                                 <table class="table">

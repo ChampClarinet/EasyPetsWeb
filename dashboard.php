@@ -71,11 +71,11 @@ $service = unserialize($_SESSION['service']);
                 <div class="row">
                     <!--review-->
                     <div class="col-lg-6 col-md-12">
-                        <?php drawTableReview($service->service_id); ?>
+                        <?php drawTableReviewSmall($service->service_id); ?>
                     </div>
                     <!--reply-->
                     <div class="col-lg-6 col-md-12">
-                        <?php drawTableReply($service->service_id); ?>
+                        <?php drawTableReplySmall($service->service_id); ?>
                     </div>
                 </div>
             </div>
