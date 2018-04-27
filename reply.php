@@ -7,11 +7,12 @@ include 'core/renderer/header_inc.php';
 require('core/drawRepliesTable.php');
 $reply_id = $_GET['id'];
 $reply = getReplyById($reply_id);
-if (!isset($reply)) echo '<script>console.log("reply=null")</script>';
-else foreach ($reply as $key => $value) echo '<script>console.log("' . $key . ' = > ' . $value . '\n")</script>';
+//if (!isset($reply)) echo '<script>console.log("reply=null")</script>';
+//else foreach ($reply as $key => $value) echo '<script>console.log("' . $key . ' = > ' . $value . '\n")</script>';
 $page_title = 'การตอบกลับ';
 setTitle($page_title);
 loadMaterialDashboardLibraries();
+loadJQuery();
 $service = unserialize($_SESSION['service']);
 ?>
 </head>
@@ -24,6 +25,13 @@ $service = unserialize($_SESSION['service']);
             <div class="container-fluid">
                 <div class="row">
                     <?php drawTableReply($reply);?>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <a href="dashboard.php">
+                            <button id="back" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">ย้อนกลับ</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

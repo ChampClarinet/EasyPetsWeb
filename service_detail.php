@@ -5,10 +5,14 @@ require('core/model/Service.php');
 require('core/db_config.php');
 require('core/serviceComponentLoader.php');
 require('core/otherServiceTable.php');
+require('core/groom.php');
+require('core/hospital.php');
+require('core/hotel.php');
 include 'core/renderer/header_inc.php';
 $page_title = 'ข้อมูลสถานบริการ';
 setTitle($page_title);
 loadMaterialDashboardLibraries();
+loadJQuery();
 $service = unserialize($_SESSION['service']);
 $groom = getComponent($GLOBALS['table_groom'], $service->service_id);
 $hospital = getComponent($GLOBALS['table_hospital'], $service->service_id);
@@ -110,155 +114,11 @@ $hotel = getComponent($GLOBALS['table_hotel'], $service->service_id);
                     </div>
                 </div>
                 <!--groom-->
-                <div <?php if ($groom == null) echo 'hidden' ?> class="row">
-                    <div class="card">
-                        <div class="card-header card-header-success">
-                            <h4 class="card-title">รายละเอียดการอาบน้ำ ตัดขน</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th style="width: 40%"></th>
-                                        <th style="width: 60%"></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>ราคาอาบน้ำ / ตัดขน เริ่มต้นที่</td>
-                                        <td>
-                                            <?php
-                                            if (isset($groom)) {
-                                                $g = $groom['grooming_price_rate'];
-                                                if ($g == 1) $g = 200;
-                                                else if ($g == 2) $g = 300;
-                                                else if ($g == 3) $g = 500;
-                                                else if ($g == 4) $g = 800;
-                                                else $g = 1000;
-                                                echo $g . ' บาท';
-                                            }
-                                            ?>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php drawGroomCard($groom) ?>
                 <!--hospital-->
-                <div <?php if ($hospital == null) echo 'hidden' ?> class="row">
-                    <div class="card">
-                        <div class="card-header card-header-danger">
-                            <h4 class="card-title">รายละเอียดการรักษาพยาบาล</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th style="width: 40%"></th>
-                                        <th style="width: 60%"></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>รองรับการผ่าตัดใหญ่</td>
-                                        <td><?php if (isset($hospital) && !$hospital['is_accept_big_operation']) echo 'ไม่'; ?>
-                                            รองรับการผ่าตัดใหญ่
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ราคาตรวจรักษาโดยประมาณ</td>
-                                        <td><?php
-                                            if (isset($hospital)) {
-                                                $h = $hospital['checkup_price_rate'];
-                                                if ($h == 1) $g = 50;
-                                                else if ($h == 2) $h = 100;
-                                                else if ($h == 3) $h = 200;
-                                                else if ($h == 4) $h = 500;
-                                                else $h = 1000;
-                                                echo $h . ' บาท';
-                                            } ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ราคาวัคซีนโดยประมาณ</td>
-                                        <td><?php
-                                            if (isset($hospital)) {
-                                                $h = $hospital['vaccine_price_rate'];
-                                                if ($h == 1) $g = 50;
-                                                else if ($h == 2) $h = 100;
-                                                else if ($h == 3) $h = 200;
-                                                else if ($h == 4) $h = 500;
-                                                else $h = 1000;
-                                                echo $h . ' บาท';
-                                            } ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ราคาผ่าตัดโดยประมาณ</td>
-                                        <td><?php
-                                            if (isset($hospital)) {
-                                                $h = $hospital['operation_price_rate'];
-                                                if ($h == 1) $g = 50;
-                                                else if ($h == 2) $h = 100;
-                                                else if ($h == 3) $h = 200;
-                                                else if ($h == 4) $h = 500;
-                                                else $h = 1000;
-                                                echo $h . ' บาท';
-                                            } ?>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php drawHospitalCard($hospital) ?>
                 <!--hotel-->
-                <div <?php if ($hotel == null) echo 'hidden' ?> class="row">
-                    <div class="card">
-                        <div class="card-header card-header-warning">
-                            <h4 class="card-title">รายละเอียดการรับฝากสัตว์เลี้ยง</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th style="width: 40%"></th>
-                                        <th style="width: 60%"></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>รับฝากค้างคืน</td>
-                                        <td><?php if (isset($hotel) && !$hotel['is_accept_overnight']) echo 'ไม่'; ?>
-                                            รับฝากค้างคืน
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ค่าบริการรับฝากโดยประมาณ</td>
-                                        <td><?php
-                                            if (isset($hotel)) {
-                                                $h = $hotel['hotel_price'];
-                                                if ($h == 1) $g = 100;
-                                                else if ($h == 2) $h = 200;
-                                                else if ($h == 3) $h = 300;
-                                                else if ($h == 4) $h = 500;
-                                                else $h = 1000;
-                                                echo $h . ' บาท';
-                                            } ?>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php drawHotelCard($hotel) ?>
                 <?php drawOtherServiceTable($service->service_id); ?>
             </div>
         </div>

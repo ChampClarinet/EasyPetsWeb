@@ -25,6 +25,13 @@ $service = unserialize($_SESSION['service']);
                     <div class="row">
                         <?php drawTableReview($review);?>
                     </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <a href="dashboard.php">
+                                <button id="back" type="button" class="btn btn-info">ย้อนกลับ</button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
