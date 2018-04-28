@@ -11,7 +11,7 @@ if(empty($_POST['reply_text'])){
     exit();
 }
 
-foreach($_POST as $key => $value)echo '<script>console.log("'.$key.' : '.$value.'");</script>';
+//foreach($_POST as $key => $value)echo '<script>console.log("'.$key.' : '.$value.'");</script>';
 
 //prepping file before upload
 if(file_exists($_FILES['reply_image']['tmp_name']) && is_uploaded_file($_FILES['reply_image']['tmp_name'])) {

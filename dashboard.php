@@ -5,10 +5,12 @@ require('core/drawReviewsTable.php');
 require('core/drawRepliesTable.php');
 require('core/model/Service.php');
 require('core/counts.php');
+require('core/serviceLoader.php');
 include 'core/renderer/header_inc.php';
 setTitle('Dashboard');
 loadMaterialDashboardLibraries();
-$service = unserialize($_SESSION['service']);
+$service_id = $_SESSION['service_id'];
+$service = loadService($service_id);
 
 ?>
 <style>

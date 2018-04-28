@@ -87,7 +87,7 @@ loadJQuery();
 
     function loadService(uid) {
         let data = {uid: uid};
-        $.post('core/serviceLoader.php', data,
+        $.post('core/serviceLoaderMain.php', data,
             function (data, status) {
             console.log(data);
                 if(status === 'success') {

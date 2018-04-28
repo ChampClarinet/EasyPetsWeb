@@ -3,6 +3,7 @@ require('core/libraries.php');
 require('core/renderer/barsAndFooter.php');
 require('core/model/Service.php');
 require('core/db_config.php');
+require('core/serviceLoader.php');
 require('core/serviceComponentLoader.php');
 require('core/otherServiceTable.php');
 require('core/groom.php');
@@ -13,7 +14,8 @@ $page_title = 'ข้อมูลสถานบริการ';
 setTitle($page_title);
 loadMaterialDashboardLibraries();
 loadJQuery();
-$service = unserialize($_SESSION['service']);
+$service_id = $_SESSION['service_id'];
+$service = loadService($service_id);
 $groom = getComponent($GLOBALS['table_groom'], $service->service_id);
 $hospital = getComponent($GLOBALS['table_hospital'], $service->service_id);
 $hotel = getComponent($GLOBALS['table_hotel'], $service->service_id);
@@ -78,11 +80,11 @@ $hotel = getComponent($GLOBALS['table_hotel'], $service->service_id);
                                     </tr>
                                     <tr>
                                         <td>โทร</td>
-                                        <td><?php echo $service->tel; ?> น.</td>
+                                        <td><?php echo $service->tel; ?></td>
                                     </tr>
                                     <tr>
                                         <td>ที่อยู่</td>
-                                        <td><?php echo $service->address; ?> น.</td>
+                                        <td><?php echo $service->address; ?></td>
                                     </tr>
                                     <tr>
                                         <td>

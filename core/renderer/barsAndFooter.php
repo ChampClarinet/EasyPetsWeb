@@ -16,12 +16,15 @@ function drawSideBar($currentPage, $service){
     $active = 'active';
     $dashboardActive = '';
     $detailActive = '';
+    $animalActive = '';
     //$reviewActive = '';
     //$replyActive = '';
     if(strcmp($currentPage, "dashboard") == 0){
         $dashboardActive = $active;
     }else if(strcmp($currentPage, "detail") == 0){
         $detailActive = $active;
+    }else if(strcmp($currentPage, "animal") == 0){
+        $animalActive = $active;
     }/*else if(strcmp($currentPage, "review") == 0){
         $reviewActive = $active;
     }else if(strcmp($currentPage, "reply") == 0){
@@ -36,6 +39,9 @@ function drawSideBar($currentPage, $service){
     //service detail
     echo '<li class="nav-item '.$detailActive.'"><a class="nav-link" href="service_detail.php">';
     echo '<i class="material-icons">store</i><p>ข้อมูลสถานบริการ</p></a></li>';
+    //animal
+    echo '<li class="nav-item '.$animalActive.'"><a class="nav-link" href="animal.php">';
+    echo '<i class="material-icons">check</i><p>การรองรับสัตว์พิเศษ</p></a></li>';
     //review
     /*echo '<li class="nav-item '.$reviewActive.'"><a class="nav-link" href="review_unused.php">';
     echo '<i class="material-icons">comment</i><p>รีวิว</p></a></li>';

@@ -3,12 +3,14 @@ require('core/libraries.php');
 require('core/renderer/barsAndFooter.php');
 require('core/model/Service.php');
 require('core/db_config.php');
+require('core/serviceLoader.php');
 include 'core/renderer/header_inc.php';
 require('core/drawReviewsTable.php');
 $page_title = 'เพิ่มบริการอื่นๆ';
 setTitle($page_title);
 loadMaterialDashboardLibraries();
-$service = unserialize($_SESSION['service']);
+$service_id = $_SESSION['service_id'];
+$service = loadService($service_id);
 ?>
 </head>
 <body>

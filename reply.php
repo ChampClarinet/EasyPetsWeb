@@ -3,6 +3,7 @@ require('core/libraries.php');
 require('core/renderer/barsAndFooter.php');
 require('core/model/Service.php');
 require('core/db_config.php');
+require('core/serviceLoader.php');
 include 'core/renderer/header_inc.php';
 require('core/drawRepliesTable.php');
 $reply_id = $_GET['id'];
@@ -13,7 +14,8 @@ $page_title = 'การตอบกลับ';
 setTitle($page_title);
 loadMaterialDashboardLibraries();
 loadJQuery();
-$service = unserialize($_SESSION['service']);
+$service_id = $_SESSION['service_id'];
+$service = loadService($service_id);
 ?>
 </head>
 <body>

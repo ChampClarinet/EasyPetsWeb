@@ -1,18 +1,16 @@
 <?php
-require('db_config.php');
-require('model/Service.php');
-session_start();
-$uid = $_POST['uid'];
-$con = connectDB();
-$sql = 'SELECT * FROM '.$GLOBALS['table_service'].' WHERE OWNER_UID = "'.$uid.'"';
-$result = $con->query($sql);
-$con->close();
-if($result->num_rows > 0){
-    $row = mysqli_fetch_assoc($result);
-    $service = createService($row);
-    $_SESSION['service'] = serialize($service);
-    echo 'สวัสดี '.$service->name;
-}else echo $GLOBALS['login_error'];
+
+function loadService($service_id){
+    $con = connectDB();
+    $sql = "SELECT * FROM ".$GLOBALS['table_service']." WHERE SERVICE_ID=".$service_id;
+    $result = $con->query($sql);
+    $con->close();
+    if($result->num_rows > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $service = createService($row);
+        return $service;
+    }return null;
+}
 
 function createService($row){
     $service = new Service();

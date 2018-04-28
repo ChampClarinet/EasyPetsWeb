@@ -6,10 +6,16 @@ function drawGroomCard($groom){
     echo '<div class="card-header card-header-success">';
     echo '<div class="row">';
     echo '<div class="col-lg-10 col-md-10 col-sm-10"><h4 class="card-title">รายละเอียดการอาบน้ำ ตัดขน</h4></div>';
-    echo '<button style="background-color: #207E26;" type="button" class="btn btn-success pull-right">';
-    if(isset($groom)) echo 'แก้ไข';
-    else echo 'เพิ่ม';
-    echo '</button></div></div>';
+    echo '<a href="groomDetail.php?new=';
+    $btn = 'เพิ่ม';
+    if(isset($groom)){
+        echo 0;
+        $btn='แก้ไข';
+    }
+    else echo 1;
+    echo '"><button style="background-color: #207E26;" type="button" class="btn btn-success pull-right">';
+    echo $btn;
+    echo '</button></a></div></div>';
     echo '<div class="card-body">';
     if(isset($groom)){
         echo '<div class="table-responsive">';

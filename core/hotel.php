@@ -7,10 +7,16 @@ function drawHotelCard($hotel)
     echo '<div class="card-header card-header-warning">';
     echo '<div class="row">';
     echo '<div class="col-lg-10 col-md-10 col-sm-10"><h4 class="card-title">รายละเอียดการรับฝากสัตว์เลี้ยง</h4></div>';
-    echo '<button style="background-color: #AA6600;" type="button" class="btn btn-warning pull-right">';
-    if (isset($hotel)) echo 'แก้ไข';
-    else echo 'เพิ่ม';
-    echo '</button></div></div>';
+    echo '<a href="hotelDetail.php?new=';
+    $btn = 'เพิ่ม';
+    if(isset($hotel)){
+        echo 0;
+        $btn='แก้ไข';
+    }
+    else echo 1;
+    echo '"><button style="background-color: #AA6600;" type="button" class="btn btn-warning pull-right">';
+    echo $btn;
+    echo '</button></a></div></div>';
     echo '<div class="card-body">';
     if (isset($hotel)) {
         echo '<div class="table-responsive">';
@@ -21,7 +27,7 @@ function drawHotelCard($hotel)
         echo '<tbody><tr>';
         echo '<td>รับฝากค้างคืน</td>';
         echo '<td>';
-        if (!$hotel['is_accept_big_operation']) echo 'ไม่';
+        if (!$hotel['is_accept_overnight']) echo 'ไม่';
         echo 'รับฝากค้างคืน</td>';
         echo '</tr>';
         echo '<tr><td>ค่าบริการรับฝากโดยประมาณ</td><td>';

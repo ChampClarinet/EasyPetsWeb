@@ -6,10 +6,16 @@ function drawHospitalCard($hospital){
     echo '<div class="card-header card-header-danger">';
     echo '<div class="row">';
     echo '<div class="col-lg-10 col-md-10 col-sm-10"><h4 class="card-title">รายละเอียดการรักษาพยาบาล</h4></div>';
-    echo '<button style="background-color: #AD1612;" type="button" class="btn btn-danger pull-right">';
-    if(isset($hospital)) echo 'แก้ไข';
-    else echo 'เพิ่ม';
-    echo '</button></div></div>';
+    echo '<a href="hospitalDetail.php?new=';
+    $btn = 'เพิ่ม';
+    if(isset($hospital)){
+        echo 0;
+        $btn='แก้ไข';
+    }
+    else echo 1;
+    echo '"><button style="background-color: #AD1612;" type="button" class="btn btn-danger pull-right">';
+    echo $btn;
+    echo '</button></a></div></div>';
     echo '<div class="card-body">';
     if(isset($hospital)){
         echo '<div class="table-responsive">';
@@ -28,8 +34,7 @@ function drawHospitalCard($hospital){
         if ($h == 1) $h = 50;
         else if ($h == 2) $h = 100;
         else if ($h == 3) $h = 200;
-        else if ($h == 4) $h = 500;
-        else $h = 1000;
+        else $h = 500;
         echo $h . ' บาท';
         echo '</td></tr>';
         echo '<tr><td>ราคาวัคซีนโดยประมาณ</td><td>';
@@ -37,8 +42,14 @@ function drawHospitalCard($hospital){
         if ($h == 1) $h = 50;
         else if ($h == 2) $h = 100;
         else if ($h == 3) $h = 200;
-        else if ($h == 4) $h = 500;
-        else $h = 1000;
+        else $h = 500;
+        echo $h . ' บาท';
+        echo '</td></tr>';
+        echo '<tr><td>ราคาผ่าตัดทั่วไปโดยประมาณ</td><td>';
+        $h = $hospital['operation_price_rate'];
+        if ($h == 1) $h = 100;
+        else if ($h == 2) $h = 300;
+        else $h = 500;
         echo $h . ' บาท';
         echo '</td></tr>';
         echo '</tbody></table>';
