@@ -8,11 +8,11 @@ include 'core/renderer/header_inc.php';
 require('core/drawReviewsTable.php');
 $review_id = $_GET['id'];
 $review = getReviewById($review_id);
-//if (!isset($review)) echo '<script>console.log("review=null")</script>';
-//else foreach ($review as $key => $value) echo '<script>console.log("' . $key . ' = > ' . $value . '\n")</script>';
+
 $page_title = $review['review_text'];
 setTitle($page_title);
 loadMaterialDashboardLibraries();
+loadJQuery();
 $service_id = $_SESSION['service_id'];
 $service = loadService($service_id);
 ?>

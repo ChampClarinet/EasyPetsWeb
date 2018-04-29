@@ -9,6 +9,7 @@ require('core/drawReviewsTable.php');
 $page_title = 'เพิ่มบริการอื่นๆ';
 setTitle($page_title);
 loadMaterialDashboardLibraries();
+loadJQuery();
 $service_id = $_SESSION['service_id'];
 $service = loadService($service_id);
 ?>
@@ -26,7 +27,8 @@ $service = loadService($service_id);
                             <h4 class="card-title">เพิ่มบริการใหม่</h4>
                         </div>
                         <div class="card-body table-responsive">
-                            <form id="reply_form" action="core/insert_other_service.php" method="post" enctype="multipart/form-data">
+                            <form id="reply_form" action="core/insert_other_service.php" method="post"
+                                  enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -39,11 +41,12 @@ $service = loadService($service_id);
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">ราคา</label>
-                                            <input name="service_price" type="text" class="form-control" />
+                                            <input name="service_price" type="text" class="form-control"/>
                                         </div>
                                     </div>
                                 </div>
-                                <input name="service_id" type="text" value="<?php echo $service->service_id; ?>" hidden />
+                                <input name="service_id" type="text" value="<?php echo $service->service_id; ?>"
+                                       hidden/>
                                 <button type="submit" class="btn btn-info pull-right">เพิ่ม</button>
                             </form>
                         </div>

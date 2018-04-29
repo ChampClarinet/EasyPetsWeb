@@ -46,9 +46,6 @@ if($fennec_fox==1){
 
 foreach ($sql as $q){
     $result = $con->query($q);
-    /*echo $q.': ';
-    if($result) echo 'ok<br>';
-    else echo 'fail<br>';*/
 }
 echo '<script>alert("อัพเดทแล้ว");';
 echo 'window.location.href = "../animal.php";</script>';

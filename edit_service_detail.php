@@ -20,11 +20,6 @@ $service = loadService($service_id);
         margin-top: 0px;
     }
 
-    .img-fluid {
-        width: 100%;
-        height: 400px;
-    }
-
     .form-check-input {
         margin-right: 30px;
     }

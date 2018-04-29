@@ -6,8 +6,7 @@ require('core/db_config.php');
 require('core/serviceLoader.php');
 require('core/serviceComponentLoader.php');
 include 'core/renderer/header_inc.php';
-//if (!isset($review)) echo '<script>console.log("review=null")</script>';
-//else foreach ($review as $key => $value) echo '<script>console.log("' . $key . ' = > ' . $value . '\n")</script>';
+
 $page_title = 'รักษาพยาบาล';
 setTitle($page_title);
 loadMaterialDashboardLibraries();

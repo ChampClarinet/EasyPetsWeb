@@ -27,8 +27,6 @@ if(strcmp($open_time, $close_time) == 0){
     $close_time = null;
 }
 
-//foreach($_POST as $key => $value)echo '<script>console.log("'.$key.' : '.$value.'");</script>';
-
 //prepping file before upload
 if(file_exists($_FILES['logo']['tmp_name']) && is_uploaded_file($_FILES['logo']['tmp_name'])) {
     echo 'logo upload!!!<br>';
@@ -54,8 +52,6 @@ if(file_exists($_FILES['picture']['tmp_name']) && is_uploaded_file($_FILES['pict
 }else{
     echo 'picture not upload!!!<br>';
 }
-/*echo $service_id.'<br>'.$name.'<br>'.$facebook_url.'<br>'.$open_days.'<br>'.$open_time.'<br>'.$close_time.'<br>'.
-$tel.'<br>'.$address.'<br>'.$latitude.'<br>'.$longitude.'<br>'.$description.'<br>'.$logo_path.'<br>'.$picture_path;*/
 
 $s = unserialize($_SESSION['service']);
 $s->name = $name;
@@ -81,8 +77,6 @@ if($open_time == null || $close_time == null) $sql.="OPEN_TIME=null, CLOSE_TIME=
 else $sql.="OPEN_TIME='".$open_time."', CLOSE_TIME='".$close_time."', ";
 $sql.="TEL='".$tel."', ADDRESS='".$address."', LATITUDE=".$latitude.", LONGITUDE=".$longitude.", DESCRIPTION='".$description."'".
 " WHERE SERVICE_ID=".$service_id;
-
-//echo $sql;
 
 $result = $con->query($sql);
 if($result){

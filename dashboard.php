@@ -9,6 +9,7 @@ require('core/serviceLoader.php');
 include 'core/renderer/header_inc.php';
 setTitle('Dashboard');
 loadMaterialDashboardLibraries();
+loadJQuery();
 $service_id = $_SESSION['service_id'];
 $service = loadService($service_id);
 

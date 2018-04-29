@@ -47,13 +47,6 @@ function drawTableReply($reply)
         echo '</tr>';
         echo '</table></div>';
     }
-    echo '<script>console.log("'.$reply['reply_picture_path'].'")</script>';
-    /*$reply = array(
-        array('พัศชนันท์ เจียจิรโชติ', 'บริการดีมากค่ะ', 'ขอบคุณครับ ทางร้านเรายินดีให้บริการครับ'),
-        array('Wallop Opasakhun', 'อาบน้ำให้น้องช้าจังครับ', 'ขออภัยในความไม่สะดวกนะครับ ทางเราจะดำเนินการแก้ไขให้เร็วที่สุดครับ'),
-        array('Misaka Mikoto', 'Nice shop', 'Thanks'),
-    );*/
-
     echo '<script>document.getElementById("deleteButton").onclick = function deleteConfirm(){let data = {reply_id: '.$reply['reply_id'].'};';
     echo 'if(confirm("คุณแน่ใจหรือไม่ที่จะลบการตอบกลับนี้")){';
     echo '$.post("core/delete_reply.php", data,function (data, status) {console.log(data);';

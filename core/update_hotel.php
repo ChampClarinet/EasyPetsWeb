@@ -4,7 +4,6 @@ $s = $_POST['service_id'];
 $is_accept_overnight = $_POST['is_accept_overnight'];
 $hotel_price = $_POST['hotel_price'];
 $n = $_POST['new'];
-//echo $s.'<br>'.$is_accept_big_operation.'<br>'.$vaccine_price_rate.'<br>'.$operation_price_rate.'<br>'.$checkup_price_rate.'<br>'.$n;
 
 if($n == 0) $sql = "UPDATE ".$GLOBALS['table_hotel']." SET is_accept_overnight=".$is_accept_overnight.", hotel_price=".$hotel_price.
     " WHERE SERVICE_ID=".$s;

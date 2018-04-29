@@ -8,8 +8,7 @@ include 'core/renderer/header_inc.php';
 require('core/drawRepliesTable.php');
 $reply_id = $_GET['id'];
 $reply = getReplyById($reply_id);
-//if (!isset($reply)) echo '<script>console.log("reply=null")</script>';
-//else foreach ($reply as $key => $value) echo '<script>console.log("' . $key . ' = > ' . $value . '\n")</script>';
+
 $page_title = 'การตอบกลับ';
 setTitle($page_title);
 loadMaterialDashboardLibraries();

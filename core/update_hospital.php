@@ -6,7 +6,6 @@ $vaccine_price_rate = $_POST['vaccine_price_rate'];
 $operation_price_rate = $_POST['operation_price_rate'];
 $checkup_price_rate = $_POST['checkup_price_rate'];
 $n = $_POST['new'];
-//echo $s.'<br>'.$is_accept_big_operation.'<br>'.$vaccine_price_rate.'<br>'.$operation_price_rate.'<br>'.$checkup_price_rate.'<br>'.$n;
 
 if($n == 0) $sql = "UPDATE ".$GLOBALS['table_hospital']." SET is_accept_big_operation=".$is_accept_big_operation.", vaccine_price_rate=".$vaccine_price_rate.
     ", operation_price_rate=".$operation_price_rate.", checkup_price_rate=".$checkup_price_rate.

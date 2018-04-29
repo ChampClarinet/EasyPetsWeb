@@ -19,8 +19,6 @@ $GLOBALS['table_special_pets'] = "special_pets";
 $GLOBALS['table_reply'] = "reply";
 $GLOBALS['table_like_condition'] = "like_condition";
 
-//header("content-type:text/javascript;charset=utf-8");
-
 function connectDB(){
     $con = mysqli_connect($GLOBALS['servername'], $GLOBALS['db_username'], $GLOBALS['db_password'], $GLOBALS['db_name']) or die(mysqli_connect_error());
     $con->query("USE ".$GLOBALS['db_name']);

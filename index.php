@@ -79,12 +79,6 @@ loadJQuery();
         }
     });
 
-    firebase.auth().signOut().then(function() {
-        // Sign-out successful.
-    }, function(error) {
-        // An error happened.
-    });
-
     function loadService(uid) {
         let data = {uid: uid};
         $.post('core/serviceLoaderMain.php', data,
