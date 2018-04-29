@@ -65,13 +65,8 @@ $selected = 'selected="selected"';
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label class="bmd-label-floating">ราคาเริ่มต้น (บาท)</label>
-                                        <select name="hotel_price" class="form-control" id="rate">
-                                            <option value="1" <?php if(isset($hotel) && $hotel['hotel_price']==1) echo $selected ?>>100</option>
-                                            <option value="2" <?php if(isset($hotel) && $hotel['hotel_price']==2) echo $selected ?>>200</option>
-                                            <option value="3" <?php if(isset($hotel) && $hotel['hotel_price']==3) echo $selected ?>>300</option>
-                                            <option value="4" <?php if(isset($hotel) && $hotel['hotel_price']==4) echo $selected ?>>500</option>
-                                            <option value="5" <?php if(isset($hotel) && $hotel['hotel_price']==5) echo $selected ?>>1000</option>
-                                        </select>
+                                        <input name="hotel_price" class="form-control" type="number"
+                                               value="<?php if(isset($hospital)) echo $hospital['hotel_price']?>" id="rate">
                                     </div>
                                 </div>
                                 <input name="service_id" type="text" value="<?php echo $service_id; ?>" hidden/>

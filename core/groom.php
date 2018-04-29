@@ -27,11 +27,6 @@ function drawGroomCard($groom){
         echo '<td>ราคาอาบน้ำ / ตัดขน เริ่มต้นที่</td>';
         echo '<td>';
         $g = $groom['grooming_price_rate'];
-        if ($g == 1) $g = 200;
-        else if ($g == 2) $g = 300;
-        else if ($g == 3) $g = 500;
-        else if ($g == 4) $g = 800;
-        else $g = 1000;
         echo $g . ' บาท';
         echo '</td></tr></tbody></table>';
     }else{

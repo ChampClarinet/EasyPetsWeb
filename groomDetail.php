@@ -39,13 +39,8 @@ $selected = 'selected="selected"';
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label class="bmd-label-floating">ราคาเริ่มต้น (บาท)</label>
-                                        <select name="grooming_price_rate" class="form-control" id="rate">
-                                            <option value="1" <?php if(isset($groom) && $groom['grooming_price_rate']==1) echo $selected ?>>200</option>
-                                            <option value="2" <?php if(isset($groom) && $groom['grooming_price_rate']==2) echo $selected ?>>300</option>
-                                            <option value="3" <?php if(isset($groom) && $groom['grooming_price_rate']==3) echo $selected ?>>500</option>
-                                            <option value="4" <?php if(isset($groom) && $groom['grooming_price_rate']==4) echo $selected ?>>800</option>
-                                            <option value="5" <?php if(isset($groom) && $groom['grooming_price_rate']==5) echo $selected ?>>1000</option>
-                                        </select>
+                                        <input name="grooming_price_rate" class="form-control" type="number"
+                                               value="<?php if(isset($groom)) echo $groom['grooming_price_rate']?>" id="rate">
                                     </div>
                                 </div>
                                 <input name="service_id" type="text" value="<?php echo $service_id; ?>" hidden/>

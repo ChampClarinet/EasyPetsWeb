@@ -32,11 +32,6 @@ function drawHotelCard($hotel)
         echo '</tr>';
         echo '<tr><td>ค่าบริการรับฝากโดยประมาณ</td><td>';
         $h = $hotel['hotel_price'];
-        if ($h == 1) $h = 100;
-        else if ($h == 2) $h = 200;
-        else if ($h == 3) $h = 300;
-        else if ($h == 4) $h = 500;
-        else $h = 1000;
         echo $h . ' บาท';
         echo '</td></tr>';
         echo '</tbody></table>';

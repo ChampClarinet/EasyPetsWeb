@@ -64,55 +64,22 @@ $selected = 'selected="selected"';
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label class="bmd-label-floating">ราคาตรวจรักษาโดยประมาณ</label>
-                                        <select name="checkup_price_rate" class="form-control" id="rate">
-                                            <option value="1" <?php if (isset($hospital) && $hospital['checkup_price_rate'] == 1) echo $selected ?>>
-                                                50
-                                            </option>
-                                            <option value="2" <?php if (isset($hospital) && $hospital['checkup_price_rate'] == 2) echo $selected ?>>
-                                                100
-                                            </option>
-                                            <option value="3" <?php if (isset($hospital) && $hospital['checkup_price_rate'] == 3) echo $selected ?>>
-                                                200
-                                            </option>
-                                            <option value="4" <?php if (isset($hospital) && $hospital['checkup_price_rate'] == 4) echo $selected ?>>
-                                                500
-                                            </option>
-                                        </select>
+                                        <input name="checkup_price_rate" class="form-control" type="number"
+                                               value="<?php if(isset($hospital)) echo $hospital['checkup_price_rate']?>" id="rate">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label class="bmd-label-floating">ราคาวัคซีนโดยประมาณ</label>
-                                        <select name="vaccine_price_rate" class="form-control" id="rate">
-                                            <option value="1" <?php if (isset($hospital) && $hospital['vaccine_price_rate'] == 1) echo $selected ?>>
-                                                50
-                                            </option>
-                                            <option value="2" <?php if (isset($hospital) && $hospital['vaccine_price_rate'] == 2) echo $selected ?>>
-                                                100
-                                            </option>
-                                            <option value="3" <?php if (isset($hospital) && $hospital['vaccine_price_rate'] == 3) echo $selected ?>>
-                                                200
-                                            </option>
-                                            <option value="4" <?php if (isset($hospital) && $hospital['vaccine_price_rate'] == 4) echo $selected ?>>
-                                                500
-                                            </option>
-                                        </select>
+                                        <input name="vaccine_price_rate" class="form-control" type="number"
+                                               value="<?php if(isset($hospital)) echo $hospital['vaccine_price_rate']?>" id="rate">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label class="bmd-label-floating">ราคาผ่าตัดทั่วไปโดยประมาณ</label>
-                                        <select name="operation_price_rate" class="form-control" id="rate">
-                                            <option value="1" <?php if (isset($hospital) && $hospital['operation_price_rate'] == 1) echo $selected ?>>
-                                                100
-                                            </option>
-                                            <option value="2" <?php if (isset($hospital) && $hospital['operation_price_rate'] == 2) echo $selected ?>>
-                                                300
-                                            </option>
-                                            <option value="3" <?php if (isset($hospital) && $hospital['operation_price_rate'] == 3) echo $selected ?>>
-                                                500
-                                            </option>
-                                        </select>
+                                        <input name="operation_price_rate" class="form-control" type="number"
+                                               value="<?php if(isset($hospital)) echo $hospital['operation_price_rate']?>" id="rate">
                                     </div>
                                 </div>
                                 <input name="service_id" type="text" value="<?php echo $service_id; ?>" hidden/>
