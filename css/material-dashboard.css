@@ -3592,9 +3592,6 @@ tbody.collapse.show {
       bottom: 100%; } }
 
 @media (max-width: 767.98px) {
-  .collapse{
-    display: block;
-  }
   .navbar-expand-md > .container,
   .navbar-expand-md > .container-fluid {
     padding-right: 0;
@@ -3639,6 +3636,9 @@ tbody.collapse.show {
       bottom: 100%; } }
 
 @media (max-width: 991.98px) {
+  .collapse{
+    display: block;
+  }
   .navbar-expand-lg > .container,
   .navbar-expand-lg > .container-fluid {
     padding-right: 0;
