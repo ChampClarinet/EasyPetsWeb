@@ -4,7 +4,7 @@ function drawNavBar($pageTitle)
     echo '<nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top"><div class="container-fluid">';
     echo '<div class="navbar-wrapper">';
     echo '<div class="dropdown">';
-    echo '<a class="dropdown-toggle collapse" data-toggle="dropdown"><i class="fa fa-bars"></i></a>';
+    echo '<a class="dropdown-toggle collapse-menu" data-toggle="dropdown"><i class="fa fa-bars"></i></a>';
     echo '<div class="dropdown-menu" style="overflow:hidden; height: auto; background-color: #ffffff">';
     echo '<li><a href="dashboard.php">Dashboard</a></li>';
     echo '<li><a href="service_detail.php">ข้อมูลสถานบริการ</a></li>';

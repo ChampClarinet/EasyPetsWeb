@@ -3636,15 +3636,15 @@ tbody.collapse.show {
       bottom: 100%; } }
 
 @media (max-width: 991.98px) {
-  .collapse{
-    display: block;
-  }
   .navbar-expand-lg > .container,
   .navbar-expand-lg > .container-fluid {
     padding-right: 0;
     padding-left: 0; } }
 
 @media (min-width: 992px) {
+  .collapse-menu{
+    display: none;
+  }
   .navbar-expand-lg {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
