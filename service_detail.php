@@ -12,8 +12,8 @@ require('core/hotel.php');
 include 'core/renderer/header_inc.php';
 $page_title = 'ข้อมูลสถานบริการ';
 setTitle($page_title);
-loadMaterialDashboardLibraries();
 loadJQuery();
+loadMaterialDashboardLibraries();
 $service_id = $_SESSION['service_id'];
 $service = loadService($service_id);
 $groom = getComponent($GLOBALS['table_groom'], $service->service_id);
@@ -50,7 +50,7 @@ $hotel = getComponent($GLOBALS['table_hotel'], $service->service_id);
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 float-right" style="position: absolute; right: 0; top: 0;">
+                                <div class="col-lg-3 col-md-3 col-sm-3">
                                     <a href="edit_service_detail.php">
                                         <button id="edit" type="button" class="btn btn-info">แก้ไขข้อมูล</button>
                                     </a>

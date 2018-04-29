@@ -440,7 +440,7 @@ sup {
   top: -.5em; }
 
 a {
-  color: #9c27b0;
+  color: #7C8FC8;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects; }
@@ -2731,7 +2731,7 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #9c27b0;
+  color: #7C8FC8;
   background-color: transparent; }
   .btn-link:hover {
     color: #0a6ebd;
@@ -2799,7 +2799,7 @@ tbody.collapse.show {
   position: relative; }
 
 .dropdown-toggle::after {
-  display: inline-block;
+  display: none;
   width: 0;
   height: 0;
   margin-left: 0.255em;
@@ -3592,6 +3592,9 @@ tbody.collapse.show {
       bottom: 100%; } }
 
 @media (max-width: 767.98px) {
+  .collapse{
+    display: block;
+  }
   .navbar-expand-md > .container,
   .navbar-expand-md > .container-fluid {
     padding-right: 0;
@@ -12114,9 +12117,9 @@ h2.title {
   .dropdown-menu a:hover,
   .dropdown-menu a:focus,
   .dropdown-menu a:active {
-    -webkit-box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
-            box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
-    background-color: #9c27b0;
+    -webkit-box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(124, 143, 200, 0.4);
+            box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(124, 143, 200, 0.4);
+    background-color: #7c8fc8;
     color: #FFFFFF; }
 
 .dropdown-toggle.bmd-btn-icon::after, .dropdown-toggle.bmd-btn-fab::after {
@@ -13593,7 +13596,7 @@ legend {
     outline: 0; }
 
 a {
-  color: #9c27b0; }
+  color: #7C8FC8; }
   a:hover, a:focus {
     color: #89229b;
     text-decoration: none; }
@@ -13941,7 +13944,7 @@ label {
     margin-right: 10px; } }
 
 a {
-  color: #9c27b0; }
+  color: #7C8FC8; }
   a:hover, a:focus {
     color: #89229b;
     text-decoration: none; }
