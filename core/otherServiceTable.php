@@ -3,32 +3,36 @@
 function drawOtherServiceTable($service_id)
 {
     $services = getOtherService($service_id);
-    echo '<div class="row"';
-    if ($services == null) {
-        echo ' hidden>';
-        return;
+    echo '<div class="row">';
+    if($services == null){
+        echo '</div><div class="row">';
+        echo '<div class="col-lg-4 col-md-4 col-sm-4">';
+        echo '<a href="add_new_service.php"><div class="card">';
+        echo '<div class="card-body">';
+        echo '<div class="card-title">เพิ่มบริการอื่นๆ</div></div>';
+        echo '</div></a></div></div>';
+    }else {
+        for ($i = 0; $i < count($services); ++$i) {
+            echo '<div class="col-lg-6 col-md-6 col-sm-6">';
+            echo '<div class="card">';
+            echo '<div class="card-header card-header-info"><div class="row">';
+            echo '<div class="col-lg-10 col-md-10 col-sm-10"><h4 class="card-title">' . $services[$i]['service_details'] . '</h4></div>';
+            echo '<button onclick="deleteConfirm(\'' . $services[$i]['service_details'] . '\', ' . $services[$i]['other_service_id'] . ');" style="background-color: #394F92;" type="button" class="btn btn-info pull-right">ลบ</button>';
+            echo '</div></div>';
+            echo '<div class="card-body"><div class="table-responsive"><table class="table"><tbody><tr>';
+            echo '<td>ราคา</td>';
+            echo '<td>' . $services[$i]['service_price'] . '</td>';
+            echo '</tr></tbody></table>';
+            echo '</div></div></div></div>';
+            if ($i % 2 == 1) echo '</div><div class="row">';
+        }
+        echo '</div><div class="row">';
+        echo '<div class="col-lg-4 col-md-4 col-sm-4">';
+        echo '<a href="add_new_service.php"><div class="card">';
+        echo '<div class="card-body">';
+        echo '<div class="card-title">เพิ่มบริการอื่นๆ</div></div>';
+        echo '</div></a></div></div>';
     }
-    echo '>';
-    for ($i = 0; $i < count($services); ++$i) {
-        echo '<div class="col-lg-6 col-md-6 col-sm-6">';
-        echo '<div class="card">';
-        echo '<div class="card-header card-header-info"><div class="row">';
-        echo '<div class="col-lg-10 col-md-10 col-sm-10"><h4 class="card-title">' . $services[$i]['service_details'] . '</h4></div>';
-        echo '<button onclick="deleteConfirm(\''.$services[$i]['service_details'].'\', ' . $services[$i]['other_service_id'] . ');" style="background-color: #394F92;" type="button" class="btn btn-info pull-right">ลบ</button>';
-        echo '</div></div>';
-        echo '<div class="card-body"><div class="table-responsive"><table class="table"><tbody><tr>';
-        echo '<td>ราคา</td>';
-        echo '<td>' . $services[$i]['service_price'] . '</td>';
-        echo '</tr></tbody></table>';
-        echo '</div></div></div></div>';
-        if ($i % 2 == 1) echo '</div><div class="row">';
-    }
-    echo '</div><div class="row">';
-    echo '<div class="col-lg-4 col-md-4 col-sm-4">';
-    echo '<a href="add_new_service.php"><div class="card">';
-    echo '<div class="card-body">';
-    echo '<div class="card-title">เพิ่มบริการอื่นๆ</div></div>';
-    echo '</div></a></div></div>';
 
     echo '<script>function deleteConfirm(service_details, other_service_id){';
     echo 'let data = {other_service_id: other_service_id};';
