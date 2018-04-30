@@ -3,11 +3,12 @@ require('core/libraries.php');
 require('core/renderer/barsAndFooter.php');
 require('core/model/Service.php');
 require('core/db_config.php');
-require('core/serviceLoader.php');
+require('core/getService.php');
 require('core/serviceComponentLoader.php');
 include 'core/renderer/header_inc.php';
-//if (!isset($review)) echo '<script>console.log("review=null")</script>';
-//else foreach ($review as $key => $value) echo '<script>console.log("' . $key . ' = > ' . $value . '\n")</script>';
+if(!isset($_SESSION['service_id'])){
+    echo '<script>window.location.href = "login.php"</script>';
+}
 $page_title = 'อาบน้ำ แต่งขน';
 setTitle($page_title);
 loadMaterialDashboardLibraries();
@@ -32,7 +33,10 @@ $selected = 'selected="selected"';
                 <div class="row">
                     <div class="card">
                         <div class="card-header card-header-success">
-                            <h4 class="card-title">บริการอาบน้ำ ตัดแต่งขน</h4>
+                            <div class="col-lg-10 col-md-10 col-sm-10">
+                                <h4 class="card-title">บริการอาบน้ำ ตัดแต่งขน</h4>
+                            </div>
+                            <?php if(isset($groom)) echo '<button style="background-color: #207E26;" type="button" id="delete_groom" class="btn btn-info pull-right">ลบ</button>'; ?>
                         </div>
                         <div class="card-body table-responsive">
                             <form id="groom_form" action="core/update_groom.php" method="post">
@@ -67,4 +71,22 @@ $selected = 'selected="selected"';
         <?php drawFooter(); ?>
     </div>
 </body>
+<script>
+    $("#delete_groom").click(function deleteConfirm() {
+        let data = {
+            service_id:  <?php echo $service_id ?>,
+            component: '<?php echo $GLOBALS['table_groom']; ?>'
+        };
+        if (confirm("คุณแน่ใจหรือไม่ที่จะลบบริการอาบน้ำ แต่งขน")) {
+            $.post("core/delete_component.php", data, function (data, status) {
+                console.log(data);
+                if (status === "success") {
+                    alert(data);
+                    window.location.href = "service_detail.php";
+                }
+                else alert("error: " + data);
+            })
+        }
+    });
+</script>
 </html>

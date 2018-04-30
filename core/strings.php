@@ -5,4 +5,5 @@ $GLOBALS['home'] = 'Home';
 $GLOBALS['username'] = 'อีเมลล์';
 $GLOBALS['password'] = 'รหัสผ่าน';
 $GLOBALS['login_button'] = 'เข้าสู่ระบบ';
+$GLOBALS['register_button'] = 'ลงทะเบียน';
 $GLOBALS['login_error'] = 'เกิดข้อผิดพลาด กรุณาลองใหม่';

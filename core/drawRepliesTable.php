@@ -50,7 +50,7 @@ function drawTableReply($reply)
     echo '<script>document.getElementById("deleteButton").onclick = function deleteConfirm(){let data = {reply_id: '.$reply['reply_id'].'};';
     echo 'if(confirm("คุณแน่ใจหรือไม่ที่จะลบการตอบกลับนี้")){';
     echo '$.post("core/delete_reply.php", data,function (data, status) {console.log(data);';
-    echo 'if(status === "success") {alert(data);window.location.href = "dashboard.php";}';
+    echo 'if(status === "success") {alert(data);window.location.href = "index.php";}';
     echo 'else alert("error: "+data);})}};</script>';
 
 }

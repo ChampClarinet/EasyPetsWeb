@@ -3,9 +3,12 @@ require('core/libraries.php');
 require('core/renderer/barsAndFooter.php');
 require('core/model/Service.php');
 require('core/db_config.php');
-require('core/serviceLoader.php');
+require('core/getService.php');
 include 'core/renderer/header_inc.php';
 require('core/drawReviewsTable.php');
+if(!isset($_SESSION['service_id'])){
+    echo '<script>window.location.href = "login.php"</script>';
+}
 $review_id = $_GET['review_id'];
 $review = getReviewById($review_id);
 $page_title = 'เขียนการตอบกลับ';

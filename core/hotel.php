@@ -34,11 +34,9 @@ function drawHotelCard($hotel)
         $h = $hotel['hotel_price'];
         echo $h . ' บาท';
         echo '</td></tr>';
-        echo '</tbody></table>';
-        echo '</div></div></div></div>';
+        echo '</tbody></table></div>';
     } else {
         echo '<h4>ไม่มีข้อมูล</h4>';
-        echo '</div></div></div>';
     }
-
+    echo '</div></div></div>';
 }

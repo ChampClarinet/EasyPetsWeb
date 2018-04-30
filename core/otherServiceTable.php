@@ -17,7 +17,7 @@ function drawOtherServiceTable($service_id)
             echo '<div class="card">';
             echo '<div class="card-header card-header-info"><div class="row">';
             echo '<div class="col-lg-10 col-md-10 col-sm-10"><h4 class="card-title">' . $services[$i]['service_details'] . '</h4></div>';
-            echo '<button onclick="deleteConfirm(\'' . $services[$i]['service_details'] . '\', ' . $services[$i]['other_service_id'] . ');" style="background-color: #394F92;" type="button" class="btn btn-info pull-right">ลบ</button>';
+            echo '<a href="edit_other_service.php?oid='.$services[$i]['other_service_id'].'"><button style="background-color: #394F92;" type="button" class="btn btn-info pull-right">แก้ไข</button></a>';
             echo '</div></div>';
             echo '<div class="card-body"><div class="table-responsive"><table class="table"><tbody><tr>';
             echo '<td>ราคา</td>';
@@ -33,13 +33,6 @@ function drawOtherServiceTable($service_id)
         echo '<div class="card-title">เพิ่มบริการอื่นๆ</div></div>';
         echo '</div></a></div></div>';
     }
-
-    echo '<script>function deleteConfirm(service_details, other_service_id){';
-    echo 'let data = {other_service_id: other_service_id};';
-    echo 'if(confirm("คุณแน่ใจหรือไม่ที่จะลบบริการ "+service_details)){';
-    echo '$.post("core/delete_other_service.php", data,function (data, status) {console.log(data);';
-    echo 'if(status === "success") {alert(data);location.reload();}';
-    echo 'else alert("error: "+data);})}};</script>';
 }
 
 function getOtherService($service_id)

@@ -41,7 +41,7 @@ function drawHospitalCard($hospital){
         $h = $hospital['operation_price_rate'];
         echo $h . ' บาท';
         echo '</td></tr>';
-        echo '</tbody></table>';
+        echo '</tbody></table></div>';
     }else{
         echo '<h4>ไม่มีข้อมูล</h4>';
     }

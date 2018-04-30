@@ -3,10 +3,13 @@ require('core/libraries.php');
 require('core/renderer/barsAndFooter.php');
 require('core/model/Service.php');
 require('core/db_config.php');
-require('core/serviceLoader.php');
+require('core/getService.php');
 include 'core/renderer/header_inc.php';
 require('core/drawReviewsTable.php');
 $page_title = 'เพิ่มบริการอื่นๆ';
+if(!isset($_SESSION['service_id'])){
+    echo '<script>window.location.href = "login.php"</script>';
+}
 setTitle($page_title);
 loadMaterialDashboardLibraries();
 loadJQuery();

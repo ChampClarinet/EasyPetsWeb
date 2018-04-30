@@ -28,9 +28,9 @@ function drawGroomCard($groom){
         echo '<td>';
         $g = $groom['grooming_price_rate'];
         echo $g . ' บาท';
-        echo '</td></tr></tbody></table>';
+        echo '</td></tr></tbody></table></div>';
     }else{
         echo '<h4>ไม่มีข้อมูล</h4>';
     }
-    echo '</div></div></div></div>';
+    echo '</div></div></div>';
 }

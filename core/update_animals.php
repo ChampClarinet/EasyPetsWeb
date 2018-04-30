@@ -48,4 +48,4 @@ foreach ($sql as $q){
     $result = $con->query($q);
 }
 echo '<script>alert("อัพเดทแล้ว");';
-echo 'window.location.href = "../animal.php";</script>';
+echo 'window.history.back();</script>';

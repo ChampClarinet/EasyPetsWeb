@@ -1,5 +1,5 @@
 .button {
-    background-color: #5E91F8;
+    background-color: #7C8FC8;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -63,7 +63,7 @@
         margin: 60px auto;
         background: #fff;
     }
-    .col-md-offset-1{
+    .col-md-offset-1 {
         margin-right: 20px;
         margin-left: 20px;
     }

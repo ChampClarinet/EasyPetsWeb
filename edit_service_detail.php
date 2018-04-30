@@ -3,8 +3,11 @@ require('core/libraries.php');
 require('core/renderer/barsAndFooter.php');
 require('core/model/Service.php');
 require('core/db_config.php');
-require('core/serviceLoader.php');
+require('core/getService.php');
 include 'core/renderer/header_inc.php';
+if(!isset($_SESSION['service_id'])){
+    echo '<script>window.location.href = "login.php"</script>';
+}
 $page_title = 'แก้ไขข้อมูล';
 setTitle($page_title);
 loadMaterialDashboardLibraries();
@@ -107,7 +110,6 @@ $service = loadService($service_id);
                                 </div>
                                 <!--days-->
                                 <div class="row">
-                                    <div class="col-lg-2 col-md-2 col-sm-2"></div>
                                     <div class="col-lg-10 col-md-10 col-sm-10">
                                         <input hidden value="<?php echo $service->open_days ?>" name="open_days" id="days" />
                                         <div class="table-responsive">
@@ -197,23 +199,29 @@ $service = loadService($service_id);
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <div class="form-group">
+                                                            <div class="form-group open-time">
                                                                 <label for="time_open" class="bmd-label-floating">เวลาเปิด</label>
                                                                 <input class="form-control" type="time" name="open_time"
                                                                        value="<?php
                                                                        if($service->open_time!=null && strcasecmp($service->open_time, 'null')!=0)
                                                                            echo $service->open_time;
-                                                                       else echo '12:00:00'?>" id="time_open">
+                                                                       else {
+                                                                           echo '12:00:00';
+                                                                           echo '<script>$(".open-time").hide();</script>';
+                                                                           }?>" id="time_open">
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <div class="form-group">
+                                                            <div class="form-group close-time">
                                                                 <label for="time_open" class="bmd-label-floating">เวลาปิด</label>
                                                                 <input class="form-control" type="time" name="close_time"
                                                                        value="<?php
                                                                        if($service->close_time !=null && strcasecmp($service->close_time, 'null')!=0)
                                                                            echo $service->close_time;
-                                                                       else echo '12:00:00'?>" id="time_close">
+                                                                       else {
+                                                                           echo '12:00:00';
+                                                                           echo '<script>$(".open-time").hide();</script>';
+                                                                       }?>" id="time_close">
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -337,13 +345,13 @@ loadFirebaseLibraries();
         let open = $('#time_open');
         let close = $('#time_close');
         if(this.checked){
-            open.prop('disabled', true);
-            close.prop('disabled', true);
+            $('.open-time').hide();
+            $('.close-time').hide();
             open.val("00:00:00");
             close.val("00:00:00");
         }else{
-            open.prop('disabled', false);
-            close.prop('disabled', false);
+            $('.open-time').show();
+            $('.close-time').show();
             open.val('<?php echo $service->open_time ?>');
             close.val('<?php echo $service->close_time ?>');
         }

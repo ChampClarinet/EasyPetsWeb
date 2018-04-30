@@ -3,9 +3,12 @@ require('core/libraries.php');
 require('core/renderer/barsAndFooter.php');
 require('core/model/Service.php');
 require('core/db_config.php');
-require('core/serviceLoader.php');
+require('core/getService.php');
 include 'core/renderer/header_inc.php';
 setTitle('สัตว์พิเศษ');
+if(!isset($_SESSION['service_id'])){
+    echo '<script>window.location.href = "login.php"</script>';
+}
 loadJQuery();
 loadMaterialDashboardLibraries();
 $service_id = $_SESSION['service_id'];
@@ -22,6 +25,10 @@ if ($result->num_rows > 0) {
         $a = $row['pet_name'];
         array_push($animals, $a);
     }
+}
+
+function rowAnimals($animals){
+
 }
 
 function contains($animals, $name)

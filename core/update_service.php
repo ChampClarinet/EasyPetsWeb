@@ -18,7 +18,7 @@ $description = $_POST['description'];
 
 if(empty($name) || empty($facebook_url) || empty($tel) || empty($address) || empty($description)){
     echo '<script>alert("กรุณากรอกข้อมูลให้ครบถ้วน");';
-    echo 'window.location.href="../edit_service_detail.php";</script>';
+    echo 'window.history.back();</script>';
     exit();
 }
 

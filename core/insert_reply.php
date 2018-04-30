@@ -36,7 +36,7 @@ echo '<script>alert("'.$sql.'");</script>';
 $result = $con->query($sql);
 if($result){
     echo '<script>alert("เพิ่มการตอบกลับแล้ว");';
-    echo 'window.location.href="../dashboard.php";</script>';
+    echo 'window.location.href="../index.php";</script>';
 }else{
     echo '<script>alert("เพิ่มการตอบกลับล้มเหลว");';
     echo 'window.location.href="../write_reply.php?review_id='.$review_id.'";</script>';

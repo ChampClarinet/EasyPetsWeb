@@ -1,5 +1,4 @@
 <?php
-
 require('strings.php');
 
 function setTitle($title){

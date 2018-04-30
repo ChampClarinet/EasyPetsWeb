@@ -3,7 +3,7 @@ require('core/libraries.php');
 require('core/renderer/barsAndFooter.php');
 require('core/model/Service.php');
 require('core/db_config.php');
-require('core/serviceLoader.php');
+require('core/getService.php');
 require('core/serviceComponentLoader.php');
 require('core/otherServiceTable.php');
 require('core/groom.php');
@@ -11,6 +11,9 @@ require('core/hospital.php');
 require('core/hotel.php');
 include 'core/renderer/header_inc.php';
 $page_title = 'ข้อมูลสถานบริการ';
+if (!isset($_SESSION['service_id'])) {
+    echo '<script>window.location.href = "login.php"</script>';
+}
 setTitle($page_title);
 loadJQuery();
 loadMaterialDashboardLibraries();
@@ -116,11 +119,11 @@ $hotel = getComponent($GLOBALS['table_hotel'], $service->service_id);
                     </div>
                 </div>
                 <!--groom-->
-                <?php drawGroomCard($groom) ?>
+                <?php drawGroomCard($groom); ?>
                 <!--hospital-->
-                <?php drawHospitalCard($hospital) ?>
+                <?php drawHospitalCard($hospital); ?>
                 <!--hotel-->
-                <?php drawHotelCard($hotel) ?>
+                <?php drawHotelCard($hotel); ?>
                 <?php drawOtherServiceTable($service->service_id); ?>
             </div>
         </div>
@@ -150,6 +153,7 @@ loadFirebaseLibraries();
             draggable: false
         });
     }
+
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBd4sDjq20vvBUIN2Yc4ANrbdxzp_TF-qs&callback=initMap">
