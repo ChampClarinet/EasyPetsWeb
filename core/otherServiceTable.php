@@ -54,6 +54,6 @@ function getOtherService($service_id)
         }
         return $s;
     }
-    echo '<script>console.log("' . $sql . '");</script>';
+    //echo '<script>console.log("' . $sql . '");</script>';
     return null;
 }
