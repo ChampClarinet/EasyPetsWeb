@@ -27,10 +27,6 @@ if ($result->num_rows > 0) {
     }
 }
 
-function rowAnimals($animals){
-
-}
-
 function contains($animals, $name)
 {
     foreach ($animals as $a) {
@@ -67,70 +63,54 @@ function contains($animals, $name)
                                     <table class="table">
                                         <tbody>
                                         <form action="core/update_animals.php" method="post">
-                                            <input name="service_id" type="text" value="<?php echo $service_id; ?>"hidden/>
-                                            <input id="l" name="lizard" type="text" value=
-                                            "<?php if (contains($animals, 'lizard')) echo 1; else echo 0; ?>" hidden/>
-                                            <input id="p" name="pig" type="text" value=
-                                            "<?php if (contains($animals, 'pig')) echo 1; else echo 0; ?>" hidden/>
-                                            <input id="s" name="snake" type="text" value=
-                                            "<?php if (contains($animals, 'snake')) echo 1; else echo 0; ?>" hidden/>
-                                            <input id="f" name="fennec_fox" type="text" value=
-                                            "<?php if (contains($animals, 'fennec fox')) echo 1; else echo 0; ?>" hidden/>
+                                            <input name="service_id" type="text" value="<?php echo $service_id; ?>" hidden/>
+                                            <input id="r" name="reptile" type="text" value=
+                                            "<?php if (contains($animals, 'reptile')) echo 1; else echo 0; ?>" hidden/>
+                                            <input id="b" name="birds" type="text" value=
+                                            "<?php if (contains($animals, 'birds')) echo 1; else echo 0; ?>" hidden/>
+                                            <input id="m" name="marine" type="text" value=
+                                            "<?php if (contains($animals, 'marine')) echo 1; else echo 0; ?>" hidden/>
                                             <tr>
                                                 <td>
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input id="lizard" class="form-check-input" type="checkbox" value=""
-                                                                <?php if (contains($animals, 'lizard')) echo 'checked' ?>/>
+                                                            <input id="reptile" class="form-check-input" type="checkbox" value=""
+                                                                <?php if (contains($animals, 'reptile')) echo 'checked' ?>/>
                                                             <span class="form-check-sign">
                                                                         <span class="check"></span>
                                                                     </span>
                                                         </label>
                                                     </div>
                                                 </td>
-                                                <td>กิ้งก่า</td>
+                                                <td>สัตว์เลื้อยคลาน</td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input id="pig" class="form-check-input" type="checkbox" value=""
-                                                                <?php if (contains($animals, 'pig')) echo 'checked' ?>/>
+                                                            <input id="birds" class="form-check-input" type="checkbox" value=""
+                                                                <?php if (contains($animals, 'birds')) echo 'checked' ?>/>
                                                             <span class="form-check-sign">
                                                                         <span class="check"></span>
                                                                     </span>
                                                         </label>
                                                     </div>
                                                 </td>
-                                                <td>หมูแคระ</td>
+                                                <td>สัตว์ปีก</td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input id="snake" class="form-check-input" type="checkbox" value=""
-                                                                <?php if (contains($animals, 'snake')) echo 'checked' ?>/>
+                                                            <input id="marine" class="form-check-input" type="checkbox" value=""
+                                                                <?php if (contains($animals, 'marine')) echo 'checked' ?>/>
                                                             <span class="form-check-sign">
                                                                         <span class="check"></span>
                                                                     </span>
                                                         </label>
                                                     </div>
                                                 </td>
-                                                <td>งู</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="form-check">
-                                                        <label class="form-check-label">
-                                                            <input id="fox" class="form-check-input" type="checkbox" value=""
-                                                                <?php if (contains($animals, 'fennec fox')) echo 'checked' ?>/>
-                                                            <span class="form-check-sign">
-                                                                        <span class="check"></span>
-                                                                    </span>
-                                                        </label>
-                                                    </div>
-                                                </td>
-                                                <td>fennec fox</td>
+                                                <td>สัตว์น้ำ</td>
                                             </tr>
                                             <button type="submit" class="btn btn-info pull-right">อัพเดท</button>
                                         </form>
@@ -151,25 +131,20 @@ function contains($animals, $name)
 loadFirebaseLibraries();
 ?>
 <script>
-    $('#lizard').change(function () {
+    $('#reptile').change(function () {
         if(this.checked){
-            $('#l').val(1);
-        }else $('#l').val(0);
+            $('#r').val(1);
+        }else $('#r').val(0);
     });
-    $('#pig').change(function () {
+    $('#birds').change(function () {
         if(this.checked){
-            $('#p').val(1);
-        }else $('#p').val(0);
+            $('#b').val(1);
+        }else $('#v').val(0);
     });
-    $('#snake').change(function () {
+    $('#marine').change(function () {
         if(this.checked){
-            $('#s').val(1);
-        }else $('#s').val(0);
-    });
-    $('#fox').change(function () {
-        if(this.checked){
-            $('#f').val(1);
-        }else $('#f').val(0);
+            $('#m').val(1);
+        }else $('#m').val(0);
     });
 </script>
 </html>

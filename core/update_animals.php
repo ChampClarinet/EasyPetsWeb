@@ -1,16 +1,14 @@
 <?php
 require('db_config.php');
 $service_id = $_POST['service_id'];
-$lizard = $_POST['lizard'];
-$pig = $_POST['pig'];
-$snake = $_POST['snake'];
-$fennec_fox = $_POST['fennec_fox'];
-
+$lizard = $_POST['reptile'];
+$birds = $_POST['birds'];
+$marine = $_POST['marine'];
+/*
 echo $lizard.'<br>';
 echo $pig.'<br>';
-echo $snake.'<br>';
-echo $fennec_fox.'<br>';
-
+echo $snake.'<br>';;
+*/
 $con = connectDB();
 $sql_add = "REPLACE INTO service_pet_available SET SERVICE_ID=".$service_id.", PET_ID=";
 $sql_delete = "DELETE FROM service_pet_available WHERE SERVICE_ID=".$service_id." AND PET_ID=";
@@ -22,25 +20,18 @@ if($lizard==1){
     $s = $sql_delete.'1';
     array_push($sql, $s);
 }
-if($pig==1){
-    $s = $sql_add.'2';
+if($birds==1){
+    $s = $sql_add.'5';
     array_push($sql, $s);
 }else{
-    $s = $sql_delete.'2';
+    $s = $sql_delete.'5';
     array_push($sql, $s);
 }
-if($snake==1){
-    $s = $sql_add.'3';
+if($marine==1){
+    $s = $sql_add.'6';
     array_push($sql, $s);
 }else{
-    $s = $sql_delete.'3';
-    array_push($sql, $s);
-}
-if($fennec_fox==1){
-    $s = $sql_add.'4';
-    array_push($sql, $s);
-}else{
-    $s = $sql_delete.'4';
+    $s = $sql_delete.'6';
     array_push($sql, $s);
 }
 
