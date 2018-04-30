@@ -7,7 +7,7 @@ $n = $_POST['new'];
 
 if($n == 0) $sql = "UPDATE ".$GLOBALS['table_hotel']." SET is_accept_overnight=".$is_accept_overnight.", hotel_price=".$hotel_price.
     " WHERE SERVICE_ID=".$s;
-else $sql = "INSERT INTO ".$GLOBALS['table_hostable_hotelpital']." VALUES (".$s.", ".$is_accept_overnight.", ".$hotel_price.")";
+else $sql = "INSERT INTO ".$GLOBALS['table_hotel']." VALUES (".$s.", ".$is_accept_overnight.", ".$hotel_price.")";
 
 $con = connectDB();
 $result = $con->query($sql);
