@@ -124,8 +124,8 @@ $hotel = getComponent($GLOBALS['table_hotel'], $service->service_id);
                 <?php drawOtherServiceTable($service->service_id); ?>
             </div>
         </div>
+        <?php drawFooter(); ?>
     </div>
-    <?php drawFooter(); ?>
 </div>
 </body>
 <?php
