@@ -52,21 +52,8 @@ $service = loadService($service_id);
                         </div>
                         <div class="card-body">
                             <form action="core/user_add.php" method="post" enctype="multipart/form-data">
-                                <!--Email & password-->
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">อีเมลล์</label>
-                                            <input id="email" name="email" type="text" class="form-control" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">รหัสผ่าน</label>
-                                            <input id="password" name="password" type="text" class="form-control" />
-                                        </div>
-                                    </div>
-                                </div>
+                                <!--owner uid-->
+                                <input hidden id="uid" name="owner_uid" />
                                 <!--name and fb url-->
                                 <div class="row">
                                     <div class="col-md-6">
@@ -250,7 +237,7 @@ $service = loadService($service_id);
                                         <div id="map"></div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-info pull-right">อัพดทข้อมูล</button>
+                                <button type="submit" class="btn btn-info pull-right">ยืนยัน</button>
                             </form>
                         </div>
                     </div>
@@ -266,6 +253,12 @@ $service = loadService($service_id);
 loadFirebaseLibraries();
 ?>
 <script>
+
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+        if(firebaseUser){
+            $('#uid').val(firebaseUser.uid);
+        }
+    });
 
     let here = {lat: 13.7213025, lng: 100.5224187};
 

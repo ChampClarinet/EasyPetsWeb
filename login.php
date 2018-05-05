@@ -30,7 +30,7 @@ loadJQuery();
                 <button id="btn-login" type="submit" class="button"><?php echo $GLOBALS['login_button'] ?></button>
             </div>
             <div class="col-md-10 col-md-offset-1">
-                <a href="register.php"><button id="btn-login" type="button" class="button"><?php echo $GLOBALS['register_button'] ?></button></a>
+                <a href="create_email.php"><button id="btn-login" type="button" class="button"><?php echo $GLOBALS['register_button'] ?></button></a>
             </div>
         </div>
     </div>

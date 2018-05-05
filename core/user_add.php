@@ -68,9 +68,9 @@ $s->latitude = $latitude;
 $s->longitude = $longitude;
 $s->description = $description;
 $_SESSION['service'] = serialize($s);
-/*
+
 $con = connectDB();
-$sql = "UPDATE " . $GLOBALS['table_service'] . " SET NAME='" . $name . "', ";
+$sql = "INSERT INTO " . $GLOBALS['table_service'] . " SET NAME='" . $name . "', ";
 if ($logo_path != null) $sql .= "LOGO_PATH='" . $logo_path . "', ";
 if ($picture_path != null) $sql .= "PICTURE_PATH='" . $picture_path . "', OPEN_DAYS='" . $open_days . "', ";
 $sql .= "FACEBOOK_URL='" . $facebook_url . "', ";
@@ -85,4 +85,3 @@ if ($result) {
 } else {
     echo 'เกิดข้อผิดพลาด';
 }
-*/
