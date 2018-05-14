@@ -85,7 +85,6 @@ loadJQuery();
             function (data, status) {
             console.log(data);
                 if(status === 'success') {
-                    alert(data);
                     window.location.href = 'index.php';
                 }
                 else alert('error: '+data);

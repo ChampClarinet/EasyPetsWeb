@@ -65,17 +65,17 @@ function contains($animals, $name)
                                         <form action="core/update_animals.php" method="post">
                                             <input name="service_id" type="text" value="<?php echo $service_id; ?>" hidden/>
                                             <input id="r" name="reptile" type="text" value=
-                                            "<?php if (contains($animals, 'reptile')) echo 1; else echo 0; ?>" hidden/>
+                                            "<?php if (contains($animals, 'reptiles')) echo 1; else echo 0; ?>" hidden/>
                                             <input id="b" name="birds" type="text" value=
                                             "<?php if (contains($animals, 'birds')) echo 1; else echo 0; ?>" hidden/>
                                             <input id="m" name="marine" type="text" value=
-                                            "<?php if (contains($animals, 'marine')) echo 1; else echo 0; ?>" hidden/>
+                                            "<?php if (contains($animals, 'marines')) echo 1; else echo 0; ?>" hidden/>
                                             <tr>
                                                 <td>
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input id="reptile" class="form-check-input" type="checkbox" value=""
-                                                                <?php if (contains($animals, 'reptile')) echo 'checked' ?>/>
+                                                                <?php if (contains($animals, 'reptiles')) echo 'checked' ?>/>
                                                             <span class="form-check-sign">
                                                                         <span class="check"></span>
                                                                     </span>
@@ -103,7 +103,7 @@ function contains($animals, $name)
                                                     <div class="form-check">
                                                         <label class="form-check-label">
                                                             <input id="marine" class="form-check-input" type="checkbox" value=""
-                                                                <?php if (contains($animals, 'marine')) echo 'checked' ?>/>
+                                                                <?php if (contains($animals, 'marines')) echo 'checked' ?>/>
                                                             <span class="form-check-sign">
                                                                         <span class="check"></span>
                                                                     </span>
